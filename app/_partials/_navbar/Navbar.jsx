@@ -98,12 +98,22 @@ export default function Navbar() {
                         <div className="offcanvas-body">
                             <ul className="navbar-nav nav-menu align-items-xl-center justify-content-center w-100">
                                 <li className="nav-item">
+                                    <Link className="nav-link" aria-current="page" href="/" onClick={handleClose}>
+                                        {trans(`Home`)}
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
                                     <Link className="nav-link" aria-current="page" href="/courses" onClick={handleClose}>
                                         {trans(`Courses`)}
                                     </Link>
                                 </li>
 
                                 <CategoryMenu handleClose={handleClose} />
+                                <li className="nav-item">
+                                    <Link className="nav-link" aria-current="page" href="/instructors" onClick={handleClose}>
+                                        {trans(`Instructors`)}
+                                    </Link>
+                                </li>
 
                                 <li className="nav-item">
                                     <Link className="nav-link" aria-current="page" href="/about" onClick={handleClose}>
@@ -116,8 +126,13 @@ export default function Navbar() {
                                     </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" href="/contact" onClick={handleClose}>
-                                        {trans(`Contact Us`)}
+                                    <Link className="nav-link" aria-current="page" href="/library" onClick={handleClose}>
+                                        {trans(`Library`)}
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" href="/donation" onClick={handleClose}>
+                                        {trans(`Donations`)}
                                     </Link>
                                 </li>
 

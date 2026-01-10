@@ -4,6 +4,7 @@ import { getMetaTitle } from "@/lib/helpers";
 import FaqList from './_components/FaqList';
 
 export const metadata = getMetaTitle("FAQs");
+export const dynamic = 'force-dynamic';
 
 async function getFaqs() {
     try {

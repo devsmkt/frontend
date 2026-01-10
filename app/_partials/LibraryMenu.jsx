@@ -88,7 +88,7 @@ export default function LibraryMenu({ handleClose }) {
                             </div>
                             <div className="mt-4 text-center">
                                 <Link href="/library" onClick={handleClose} className="btn btn--base">
-                                    {trans(`View All Library`)}
+                                    {trans(`View All Books`)}
                                 </Link>
                             </div>
                         </div>

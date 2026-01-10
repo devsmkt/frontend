@@ -13,25 +13,30 @@ export default function BookDetails({ book }) {
 
     return (
         <>
-            <section className="course-banner">
+            <section className="course-banner py-50 bg-img">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-lg-8">
-                            <div className="course-banner-content">
-                                <h2 className="course-banner__title text-white">{trans(book?.title)}</h2>
-                                <p className="course-banner__desc text-white mb-3">{trans(book?.category?.name)}</p>
-
-                                <div className="course-banner__meta">
-                                    <div className="course-banner__meta-item">
-                                        <span className="icon"><i className="far fa-clock"></i></span>
-                                        <span className="text text-white">{showDateTime(book?.created_at, 'DD MMM YYYY')}</span>
-                                    </div>
+                    <div className="course-wrapper">
+                        <div className="row gy-4 align-items-center justify-content-between flex-lg-row-reverse">
+                            <div className="col-xl-4 col-lg-5">
+                                <div className="course-thumb">
+                                    <Image className="fit-image" src={bookImage(book?.image)} alt="book_image" />
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-lg-4">
-                            <div className="course-banner-thumb">
-                                <Image src={bookImage(book?.image)} className="fit-image" alt="book_image" />
+                            <div className="col-lg-7">
+                                <span className="course-category">{trans(book?.category?.name)}</span>
+                                <div className="course-content">
+                                    <h2 className="course-content__title">{trans(book?.title)}</h2>
+                                    <p className="course-content__desc">{trans(book?.category?.name)}</p>
+                                </div>
+
+                                <div className="course-info-wrapper">
+                                    <div className="course-content-footer">
+                                        <div className="course-banner__meta-item">
+                                            <span className="icon"><i className="far fa-clock"></i></span>
+                                            <span className="text text-white">{showDateTime(book?.created_at, 'DD MMM YYYY')}</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -42,12 +47,8 @@ export default function BookDetails({ book }) {
                 <div className="container">
                     <div className="row justify-content-center">
                          <div className="col-lg-12">
-                            <div className="card custom--card border-0">
-                                <div className="card-body p-4 p-lg-5">
-                                    <BookAbout book={book} />
-                                    <BookSyllabus book={book} />
-                                </div>
-                            </div>
+                            <BookAbout book={book} />
+                            <BookSyllabus book={book} />
                          </div>
                     </div>
                 </div>

@@ -128,6 +128,7 @@ export const Footer = () => {
                                 }
 
                                 <li className="footer-menu__item"><Link href="/contact" className="footer-menu__link">{trans('Contact')}</Link></li>
+                                 <li className="footer-menu__item"><Link href="/faq" className="footer-menu__link">{trans('Faqs')}</Link></li>
                             </ul>
                         </div>
                         <div className="footer-item">

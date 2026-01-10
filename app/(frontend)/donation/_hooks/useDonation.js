@@ -8,38 +8,44 @@ export default function useDonation() {
     const [loading, setLoading] = useState(false);
 
     const initialValues = {
-        amount: 100,
+        amount: 50,
         method_code: '101',
         currency: 'USD',
-        full_name: 'John Doe',
-        email: 'john@example.com',
-        message: 'Keep up the good work!'
+        full_name: '',
+        message: ''
     };
 
     const validationSchema = Yup.object().shape({
         amount: Yup.number().required('Amount is required').positive('Amount must be positive'),
         method_code: Yup.string().required('Method code is required'),
         currency: Yup.string().required('Currency is required'),
-        full_name: Yup.string().required('Full name is required'),
-        email: Yup.string().email('Invalid email address').required('Email is required'),
-        message: Yup.string().required('Message is required'),
+        full_name: Yup.string().nullable(),
+        message: Yup.string().nullable(),
     });
 
     const handleSubmit = async (values, { resetForm }) => {
-        const formData = getFormData(values);
         setLoading(true);
         try {
-            const { data } = await request.post(ENDPOINTS.DONATION_STORE, formData);
+            const { data } = await request.post(ENDPOINTS.DONATION_STORE, values, {
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
             
             if (data.status === 'success') {
-                notifyToast(data);
-                resetForm();
+                if (data.data?.redirect_url) {
+                    window.location.href = data.data.redirect_url;
+                } else {
+                    notifyToast(data);
+                    resetForm();
+                }
             } else {
                 notifyToast(data);
             }
         } catch (error) {
             console.error(error);
-            toast.error(error.message || "Something went wrong");
+            const message = error.response?.data?.message || error.message || "Something went wrong";
+            toast.error(message);
         } finally {
             setLoading(false);
         }

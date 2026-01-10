@@ -22,7 +22,6 @@ export default function DonationForm() {
                         {/* Hidden fields to satisfy validation/backend for now */}
                         <div className="d-none">
                             <FormField name="full_name" />
-                            <FormField name="email" />
                             <FormField name="currency" />
                             <FormField name="message" />
                         </div>

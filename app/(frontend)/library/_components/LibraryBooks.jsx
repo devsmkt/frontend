@@ -3,7 +3,7 @@
 import useUtility from '@/app/_hooks/useUtility';
 import Pagination from '@/app/_partials/Pagination';
 import ENDPOINTS from '@/lib/endpoints';
-import { frontendImage, request, showDateTime } from '@/lib/helpers';
+import { bookImage, request, showDateTime } from '@/lib/helpers';
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -55,7 +55,7 @@ export default function LibraryBooks() {
                                             <div className="blog-item" >
                                                 <div className="blog-item__thumb">
                                                     <Link href={`/library/${book?.id}`} className="blog-item__thumb-link">
-                                                        <Image src={frontendImage(book?.image, 'library')} className="fit-image" alt="book_image" />
+                                                        <Image src={bookImage(book?.image)} className="fit-image" alt="book_image" />
                                                     </Link>
                                                 </div>
                                                 <div className="blog-item__content">

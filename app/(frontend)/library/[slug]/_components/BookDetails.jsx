@@ -1,7 +1,7 @@
 "use client";
 
 import useUtility from '@/app/_hooks/useUtility';
-import { frontendImage, showDateTime } from '@/lib/helpers';
+import { bookImage, showDateTime } from '@/lib/helpers';
 import React from 'react';
 import { Image } from 'react-bootstrap';
 import BookAbout from './BookAbout';
@@ -31,7 +31,7 @@ export default function BookDetails({ book }) {
                         </div>
                         <div className="col-lg-4">
                             <div className="course-banner-thumb">
-                                <Image src={frontendImage(book?.image, 'library')} className="fit-image" alt="book_image" />
+                                <Image src={bookImage(book?.image)} className="fit-image" alt="book_image" />
                             </div>
                         </div>
                     </div>

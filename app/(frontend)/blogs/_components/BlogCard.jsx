@@ -4,7 +4,7 @@ import useUtility from '@/app/_hooks/useUtility';
 import { useSection } from '@/app/_partials/_sections/_hooks/useSection';
 import Pagination from '@/app/_partials/Pagination';
 import ENDPOINTS from '@/lib/endpoints';
-import { frontendImage, request, showDateTime } from '@/lib/helpers';
+import { blogImage, request, showDateTime } from '@/lib/helpers';
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -66,8 +66,8 @@ export default function BlogCard() {
                                     <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
                                         <div className="blog-item" >
                                             <div className="blog-item__thumb">
-                                                <Link href={`/blog-details/${blog?.slug}`} className="blog-item__thumb-link">
-                                                    <Image src={frontendImage('thumb_' + blog?.data_values?.image, 'blog')} className="fit-image" alt="blog_image" />
+                                                <Link href={`/blog-details/${blog?.id}-${blog?.slug}`} className="blog-item__thumb-link">
+                                                    <Image src={blogImage(blog?.image)} className="fit-image" alt="blog_image" />
                                                 </Link>
                                             </div>
                                             <div className="blog-item__content">
@@ -76,10 +76,10 @@ export default function BlogCard() {
                                                     <span className="text">{showDateTime(blog?.created_at, 'DD MMM YYYY')}</span>
                                                 </div>
                                                 <h6 className="blog-item__title">
-                                                    <Link href={`/blog-details/${blog?.slug}`} className="blog-item__title-link">{trans(blog?.data_values?.title)}</Link>
+                                                    <Link href={`/blog-details/${blog?.id}-${blog?.slug}`} className="blog-item__title-link">{trans(blog?.title)}</Link>
                                                 </h6>
                                                 <p className="blog-item__desc">
-                                                    {trans(blog?.data_values?.preview_text)}
+                                                    {trans(blog?.preview_text)}
                                                 </p>
                                             </div>
                                         </div>

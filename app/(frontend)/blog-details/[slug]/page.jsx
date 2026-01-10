@@ -14,10 +14,11 @@ const data = cache(async ({ slug }) => {
 export async function generateMetadata(props) {
     const params = await props.params;
     const { slug } = params;
-    const blogData = await data({ slug });
+    const id = slug.split('-')[0];
+    const blogData = await data({ slug: id });
 
     return await getSEO({
-        title: getTitle(blogData?.blog?.data_values?.title),
+        title: getTitle(blogData?.blog?.title),
         description: blogData?.seo_content?.description,
         keywords: blogData?.seo_content?.keywords,
         image: blogData?.seo_image
@@ -27,17 +28,16 @@ export async function generateMetadata(props) {
 export default async function BlogDetails(props) {
     const params = await props.params;
     const { slug } = params;
-    const blogData = await data({ slug });
-
+    
+    // Extract ID from slug (format: id-slug or just id)
+    const id = slug.split('-')[0];
+    const blogData = await data({ slug: id });
 
     if (blogData.status == 'error') {
         return notFound();
     }
-
     
     return (
         <BlogDetailsClient blogData={blogData} />
     );
-
-
 }

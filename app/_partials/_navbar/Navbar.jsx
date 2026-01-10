@@ -107,13 +107,14 @@ export default function Navbar() {
                                         {trans(`Courses`)}
                                     </Link>
                                 </li>
-
-                                <CategoryMenu handleClose={handleClose} />
-                                <li className="nav-item">
-                                    <Link className="nav-link" aria-current="page" href="/instructors" onClick={handleClose}>
-                                        {trans(`Instructors`)}
+                                 <li className="nav-item">
+                                    <Link className="nav-link" aria-current="page" href="/library" onClick={handleClose}>
+                                        {trans(`Library`)}
                                     </Link>
                                 </li>
+
+                                <CategoryMenu handleClose={handleClose} />
+                                
 
                                 <li className="nav-item">
                                     <Link className="nav-link" aria-current="page" href="/about" onClick={handleClose}>
@@ -125,11 +126,7 @@ export default function Navbar() {
                                         {trans(`Blogs`)}
                                     </Link>
                                 </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link" aria-current="page" href="/library" onClick={handleClose}>
-                                        {trans(`Library`)}
-                                    </Link>
-                                </li>
+                               
                                 <li className="nav-item">
                                     <Link className="nav-link" href="/donation" onClick={handleClose}>
                                         {trans(`Donations`)}

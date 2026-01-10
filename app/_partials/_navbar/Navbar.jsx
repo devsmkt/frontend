@@ -13,6 +13,7 @@ import { Logo } from "./Logo";
 import LangControl from "../LangControl";
 import { UserMenu } from "./UserMenu";
 import CategoryMenu from "../CategoryMenu";
+import LibraryMenu from "../LibraryMenu";
 import useLoginHandler from "@/app/(frontend)/(auth)/login/_hooks/useLoginHandler";
 import { setInstructorData } from "@/store/instructorSlice";
 import useInstructorLoginHandler from "@/app/(instructor)/instructor/(auth)/login/_hooks/useInstructorLoginHandler";
@@ -107,11 +108,8 @@ export default function Navbar() {
                                         {trans(`Courses`)}
                                     </Link>
                                 </li>
-                                 <li className="nav-item">
-                                    <Link className="nav-link" aria-current="page" href="/library" onClick={handleClose}>
-                                        {trans(`Library`)}
-                                    </Link>
-                                </li>
+                                
+                                <LibraryMenu handleClose={handleClose} />
 
                                 <CategoryMenu handleClose={handleClose} />
                                 

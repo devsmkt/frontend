@@ -9998,6 +9998,16 @@ nav:has(.pagination) {
     cursor: pointer;
 }
 
+/* Donation Form Styles */
+.btn.btn-light.border.px-4 {
+    color: #000 !important;
+}
+
+.btn.btn-outline-primary.d-flex.align-items-center.gap-2 {
+    color: #000 !important;
+    background: #f2f2f2;
+}
+
 .exam-mcq-item__check-input:checked,
 .exam-mcq-item__check-input:not(:checked) {
     position: absolute;
